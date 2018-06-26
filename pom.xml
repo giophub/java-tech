@@ -1,0 +1,189 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.giophub</groupId>
+	<artifactId>xml-tutorial</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1</version>
+	<name>xml-tutorial</name>
+	<url>http://maven.apache.org</url>
+
+	<!-- PROPERTIES -->
+	<properties>
+		<java.version>1.8</java.version>
+		<spring.version>3.2.3.RELEASE</spring.version>
+	</properties>
+
+
+	<!-- DEPENDENCIES -->
+	<dependencies>
+
+		<!-- SOURCE LIBRARIES -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.4</version>
+		</dependency>
+		<!-- Binding for logBack -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+		<!-- Anything using commons-logging should defer to slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- Spring 3 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+
+		<!-- TESTING LIBRARIES -->
+
+		<!-- JUNIT -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- SPOCK FRAMEWORK DEPENDENCIES -->
+		<!-- Versions of the following dependencies should be omitted if using
+        spring-boot-starter-parent -->
+		<dependency>
+			<groupId>org.spockframework</groupId>
+			<artifactId>spock-spring</artifactId>
+			<version>1.0-groovy-2.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency> <!-- use a specific Groovy version rather than the one specified by spock-core -->
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.4.6</version>
+		</dependency>
+		<dependency> <!-- to testing RESTClient -->
+			<groupId>org.codehaus.groovy.modules.http-builder</groupId>
+			<artifactId>http-builder</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>groovy</artifactId>
+					<groupId>org.codehaus.groovy</groupId>
+				</exclusion>
+			</exclusions>
+			<version>0.5.2</version>
+		</dependency>
+		<!-- end SPOCK FRAMEWORK DEPENDENCIES -->
+	</dependencies>
+
+
+	<!-- BUILD -->
+	<build>
+		<!-- FILENAME -->
+		<finalName>${project.artifactId}-${project.version}</finalName>
+
+		<!-- PLUGINS -->
+		<pluginManagement>
+			<plugins>
+				<!-- SPOCK FRAMEWORK PLUGINS -->
+				<plugin>
+					<!-- The gmavenplus plugin is used to compile Groovy code. To learn more about this plugin,
+                    visit https://github.com/groovy/GMavenPlus/wiki -->
+					<groupId>org.codehaus.gmavenplus</groupId>
+					<artifactId>gmavenplus-plugin</artifactId>
+					<version>1.4</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>testCompile</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- Optional plugins for using Spock -->
+				<!-- Only required if names of spec classes don't match default Surefire patterns (`*Test` etc.) -->
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<useFile>false</useFile>
+						<includes>
+							<include>**/*Spec.java</include>
+							<include>**/*Test.java</include>
+						</includes>
+					</configuration>
+				</plugin>
+				<!-- END SPOCK FRAMEWORK PLUGINS -->
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>local-dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<profile.id>local-dev</profile.id>
+				<log.directory.val>${project.basedir}/_logs</log.directory.val>
+				<log.level.val>INFO</log.level.val>
+				<log.max.index>200</log.max.index>
+				<!--<disschain.env.target>LOCAL-DEV</disschain.env.target>
+				<disschain.ws.endpoint>http://localhost:8088/mock</disschain.ws.endpoint>-->
+			</properties>
+		</profile>
+	</profiles>
+</project>
