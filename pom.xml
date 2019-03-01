@@ -28,12 +28,12 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
 
-            <id>Windows</id>
+            <id>Development</id>
             <properties>
                 <build.name>${project.name}</build.name>
 
                 <!-- deployment settings -->
-                <profile.env>Windows</profile.env>
+                <profile.env>Development</profile.env>
 
                 <!-- log settings -->
                 <log.directory.val>${project.basedir}/_logs</log.directory.val>
@@ -43,22 +43,6 @@
             </properties>
         </profile>
 
-        <!-- LINUX -->
-        <profile>
-            <id>Linux</id>
-            <properties>
-                <build.name>${project.name}_${profile.env}</build.name>
-
-                <!-- deployment settings -->
-                <profile.env>Linux</profile.env>
-
-                <!-- log settings -->
-                <log.directory.val>/ec/stress/server/comext-local/performance-test</log.directory.val>
-                <log.level.val>INFO</log.level.val>
-                <log.max.index.val>200</log.max.index.val>
-                <log.max.size.val>5MB</log.max.size.val>
-            </properties>
-        </profile>
     </profiles>
 
 
@@ -223,32 +207,13 @@
 
     <!-- DEPENDENCIES -->
     <dependencies>
-
         <!-- SOURCE LIBRARIES -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- Apache commons : HTTP Client -->
-        <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
-            <version>3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.1</version>
-        </dependency>
 
-
-        <!-- Logging -->
+        <!-- LOGGER -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.4</version>
+            <version>1.7.25</version>
         </dependency>
         <!-- Binding for logBack -->
         <dependency>
@@ -260,7 +225,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>1.7.4</version>
+            <version>1.7.25</version>
         </dependency>
         <dependency>
             <groupId>commons-logging</groupId>
@@ -270,17 +235,38 @@
 
         <!-- COMMONS -->
         <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.0.1</version>
+            <version>3.8.1</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
+
+        <!-- WEB -->
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>3.0</version>
+            <scope>provided</scope>
         </dependency>
+        <!-- Apache commons : HTTP Client -->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.6</version>
+        </dependency>
+
+
 
         <!-- Spring -->
         <dependency>
@@ -322,7 +308,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
 
