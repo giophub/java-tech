@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.giophub</groupId>
     <artifactId>maven-kickstart</artifactId>
-    <packaging>war</packaging> <!-- todo : change to war or something else -->
+    <packaging>jar</packaging> <!-- todo : change to war or something else -->
     <version>0.0.1</version>
     <name>${project.artifactId}</name>
     <description>maven starter for new projects</description>
@@ -113,7 +113,7 @@
                 </configuration>
             </plugin>
             <!-- Build an executable WAR -->
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
@@ -126,7 +126,7 @@
                         </webResource>
                     </webResources>
                 </configuration>
-            </plugin>
+            </plugin>-->
             <!-- Build an executable JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
