@@ -332,10 +332,11 @@
 	easily refer from these tool-specific files to the information in the standard 
 	deployment descriptor. Tools are not allowed to add the non-standard information 
 	into the standard deployment descriptor. -->
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<display-name>Archetype Created Web Application</display-name>
+<web-app
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>maven-kickstart</display-name>
 
 	<!--<context-param>
 		<param-name>applicationContext.xml</param-name>
@@ -345,9 +346,9 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>-->
 
-	<listener>
+	<!--<listener>
 		<listener-class>com.mypkg.startup.SpringApplicationContextListener</listener-class>
-	</listener>
+	</listener>-->
 
 
 	<context-param>
@@ -360,7 +361,7 @@
 			/sample-maven-web-starter/SampleServlet</description>
 		<display-name>SampleServlet</display-name>
 		<servlet-name>SampleServlet</servlet-name>
-		<servlet-class>com.mypkg.servlet.SampleServlet</servlet-class>
+		<servlet-class>com.giophub.servlet.SampleServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SampleServlet</servlet-name>
@@ -370,7 +371,7 @@
 		<description>This basic servlet use parameters to set class fields</description>
 		<display-name>SampleServletWithParameters</display-name>
 		<servlet-name>SampleServletWithParameters</servlet-name>
-		<servlet-class>com.mypkg.servlet.SampleServletWithParameters</servlet-class>
+		<servlet-class>com.giophub.servlet.SampleServletWithParameters</servlet-class>
 		<init-param>
 			<description>This is the first param</description>
 			<param-name>name</param-name>
@@ -390,7 +391,7 @@
 		<description>A simple servlet with init parameters</description>
 		<display-name>ServletWithInitParameters</display-name>
 		<servlet-name>ServletWithInitParameters</servlet-name>
-		<servlet-class>com.mypkg.servlet.ServletWithInitParameters</servlet-class>
+		<servlet-class>com.giophub.servlet.ServletWithInitParameters</servlet-class>
 		<init-param>
 			<description>The first parameter</description>
 			<param-name>name</param-name>
@@ -414,7 +415,7 @@
 			localhost:8080/SpringServlet</description>
 		<display-name>SpringServlet</display-name>
 		<servlet-name>SpringServlet</servlet-name>
-		<servlet-class>com.mypkg.servlet.SpringServlet</servlet-class>
+		<servlet-class>com.giophub.servlet.SpringServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SpringServlet</servlet-name>
