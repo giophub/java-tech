@@ -408,6 +408,18 @@
 		<url-pattern>/ServletWithInitParameters</url-pattern>
 	</servlet-mapping>
 
+	<!-- JAX-WS SOAP service publisher servlet -->
+	<servlet>
+		<description>this servlet publish the SOAP service</description>
+		<display-name>SOAP service publisher servlet</display-name>
+		<servlet-name>SoapServicePublisher</servlet-name>
+		<servlet-class>com.giophub.soap.jaxws.SoapServicePublisher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SoapServicePublisher</servlet-name>
+		<url-pattern>/SoapServicePublisher</url-pattern>
+	</servlet-mapping>
+
 	<!-- Spring servlet-->
 	<servlet>
 		<!--<load-on-startup>1</load-on-startup>-->

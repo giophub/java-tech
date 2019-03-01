@@ -2,11 +2,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.giophub</groupId>
-    <artifactId>maven-kickstart</artifactId>
-    <packaging>war</packaging> <!-- todo : change to war or something else -->
+    <artifactId>java-tech</artifactId>
+    <packaging>war</packaging>
     <version>0.0.1</version>
     <name>${project.artifactId}</name>
-    <description>maven starter for new projects</description>
+    <description>Java technologies</description>
 
     <!-- PROPERTIES -->
     <properties>
