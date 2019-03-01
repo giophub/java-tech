@@ -1,0 +1,1 @@
+This dir is used to store log files created by the LOGGER.
