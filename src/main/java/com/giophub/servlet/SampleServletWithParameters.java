@@ -1,5 +1,8 @@
 package com.giophub.servlet;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +16,8 @@ public class SampleServletWithParameters
 		extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
+
+	private static final Logger LOG = LoggerFactory.getLogger(SampleServletWithParameters.class);
        
     private String name;
     private String city;
@@ -32,14 +37,13 @@ public class SampleServletWithParameters
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException
+			throws IOException
 	{
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		this.name = request.getParameter("name");
 		this.city = request.getParameter("city");
-		System.out.println("Param name: " + this.name);
-		System.out.println("Param city: " + this.city);
+		LOG.info("Param name: {}, city: ", this.name, this.city);
 		response.getWriter().append("Param name: ").append(this.name + "\n");
 		response.getWriter().append("Param city: ").append(this.city + "\n");
 	}

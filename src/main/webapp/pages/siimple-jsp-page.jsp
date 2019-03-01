@@ -1,8 +1,6 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: pergio
+  User: giophub
   Date: 3/23/2018
-  Time: 4:27 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,10 +24,6 @@
 
 <h1>The session with session.getId(): </h1>
 <%= session.getId() %>
-
-
-
-
 
 </body>
 </html>
