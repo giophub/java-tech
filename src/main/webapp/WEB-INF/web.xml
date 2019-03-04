@@ -333,9 +333,7 @@
 	deployment descriptor. Tools are not allowed to add the non-standard information 
 	into the standard deployment descriptor. -->
 <web-app
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
-		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+>
 	<display-name>maven-kickstart</display-name>
 
 	<!--<context-param>
@@ -414,6 +412,15 @@
 		<display-name>SOAP service publisher servlet</display-name>
 		<servlet-name>SoapServicePublisher</servlet-name>
 		<servlet-class>com.giophub.soap.jaxws.service.SoapServicePublisher</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- JAX-WS SOAP client -->
+	<servlet>
+		<description>this servlet make a call to the SOAP service</description>
+		<display-name>SOAP client servlet</display-name>
+		<servlet-name>SoapClient</servlet-name>
+		<servlet-class>com.giophub.soap.jaxws.client.SoapClient</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
