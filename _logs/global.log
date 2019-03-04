@@ -1,0 +1,5 @@
+2019-03-04 11:06:28,617 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 12:10:50,541 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 14:41:09,135 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 14:50:53,504 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 15:03:17,741 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
