@@ -186,6 +186,54 @@
                 </configuration>
             </plugin>-->
 
+            <!-- create stub classes from the WSDL -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.5</version>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jvnet.jaxb2_commons</groupId>
+                        <artifactId>jaxb2-fluent-api</artifactId>
+                        <version>3.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.sun.xml.ws</groupId>
+                        <artifactId>jaxws-tools</artifactId>
+                        <version>2.3.2</version>
+                    </dependency>
+                </dependencies>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- run: jaxws:wsimport during the mvn clean package/install phase-->
+                            <!--<goal>wsimport</goal>-->
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <!-- Use the wsdl from an url. Note that the service must to be up & running ! -->
+                    <wsdlUrls>
+                        <wsdlLocation>http://localhost:8081/JaxWsSoapService?wsdl</wsdlLocation>
+                    </wsdlUrls>
+                    <!-- Or use wsdls file directory -->
+                    <!--<wsdlDirectory>${project.basedir}/src/main/resources/app.settings/wsdl</wsdlDirectory>
+                    <wsdlFiles>&lt;!&ndash; which wsdl file &ndash;&gt;
+                        <wsdlFile>jaxws-service.wsdl</wsdlFile>
+                    </wsdlFiles>-->
+                    <packageName>com.giophub.soap.jaxws.client.stub</packageName>
+                    <xjcArgs>
+                        <xjcArg>-Xfluent-api</xjcArg>
+                    </xjcArgs>
+                    <verbose>true</verbose>
+                    <keep>true</keep> <!--used by default-->
+                    <sourceDestDir>${project.build.sourceDirectory}</sourceDestDir>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <!--
                     to run in maven: mvn tomcat7:run
@@ -384,7 +432,7 @@
 
     <scm>
         <url>https://github.com/giophub/maven-kickstart.git</url>
-        <connection>scm:git:${scm.url}</connection>
-        <developerConnection>${scm.connection}</developerConnection>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>${project.scm.connection}</developerConnection>
     </scm>
 </project>
