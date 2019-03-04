@@ -1,12 +1,12 @@
-package com.giophub.soap.jaxws;
+package com.giophub.soap.jaxws.service;
 
-import com.giophub.soap.jaxws.contract.SoapService;
+import com.giophub.soap.jaxws.service.contract.SoapService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "com.giophub.soap.jaxws.contract.SoapService")
+@WebService(endpointInterface = "com.giophub.soap.jaxws.service.contract.SoapService")
 public class SoapServiceImpl
         implements SoapService {
 

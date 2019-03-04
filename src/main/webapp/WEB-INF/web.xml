@@ -413,21 +413,18 @@
 		<description>this servlet publish the SOAP service</description>
 		<display-name>SOAP service publisher servlet</display-name>
 		<servlet-name>SoapServicePublisher</servlet-name>
-		<servlet-class>com.giophub.soap.jaxws.SoapServicePublisher</servlet-class>
+		<servlet-class>com.giophub.soap.jaxws.service.SoapServicePublisher</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<servlet-mapping>
-		<servlet-name>SoapServicePublisher</servlet-name>
-		<url-pattern>/SoapServicePublisher</url-pattern>
-	</servlet-mapping>
 
 	<!-- Spring servlet-->
 	<servlet>
-		<!--<load-on-startup>1</load-on-startup>-->
 		<description>Spring servlet example, the URL mappings is:
 			localhost:8080/SpringServlet</description>
 		<display-name>SpringServlet</display-name>
 		<servlet-name>SpringServlet</servlet-name>
 		<servlet-class>com.giophub.servlet.SpringServlet</servlet-class>
+		<!--<load-on-startup>1</load-on-startup>-->
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SpringServlet</servlet-name>

@@ -1,4 +1,4 @@
-package com.giophub.soap.jaxws.contract;
+package com.giophub.soap.jaxws.service.contract;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
