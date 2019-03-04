@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- @author: giophub -->
+<project name="build-script" basedir="." default="mvn-release">
+
+	<condition property="isWindows"><os family="windows" /></condition>
+	<condition property="isUnix"><os family="unix" /></condition>
+
+	<target name="mvn_windows_setup" if="isWindows">
+		<property name="mvn.executable" value="cmd" />
+		<property name="mvn.args" value="/c" />
+	</target>
+	<target name="mvn_unix_setup" if="isUnix">
+		<property name="mvn.executable" value="sh" />
+		<property name="mvn.args" value="-c" />
+	</target>
+
+	<target name="run-mvn-goals" depends="mvn_windows_setup, mvn_unix_setup">
+		<exec dir="${basedir}" executable="${mvn.executable}">
+			<arg line="${mvn.args} 'mvn ${p_goals}'" />
+		</exec>
+        <move todir="_RELEASES">
+            <fileset dir="target">
+                <include name="**/*.war" />
+                <exclude name="" />
+            </fileset>
+        </move>
+	</target>
+    <target name="run-mvn-clean" depends="mvn_windows_setup, mvn_unix_setup">
+        <exec dir="${basedir}" executable="${mvn.executable}">
+            <arg line="${mvn.args} 'mvn clean'" />
+        </exec>
+    </target>
+	<target name="mvn-release">
+        <delete includeEmptyDirs="true">
+            <fileset dir="_RELEASES" includes="**/*" />
+        </delete>
+		<antcall target="run-mvn-goals">
+			<param name="p_goals" value="clean package -Pestat_linux_acc -DskipTests"/>
+		</antcall>
+        <antcall target="run-mvn-clean" />
+	</target>
+
+    <target name="run-mvn-generate" depends="mvn_windows_setup, mvn_unix_setup">
+        <exec dir="${basedir}" executable="${mvn.executable}">
+            <arg line="${mvn.args} 'mvn ${p_goals}'" />
+        </exec>
+    </target>
+    <target name="mvn-create-stubs">
+        <delete includeEmptyDirs="true">
+            <fileset dir="src/main/java/com/giophub/soap/jaxws/client/stub/" includes="**/*" />
+        </delete>
+        <antcall target="run-mvn-generate">
+            <param name="p_goals" value="clean package -DskipTests"/>
+        </antcall>
+        <antcall target="run-mvn-generate">
+            <param name="p_goals" value="tomcat7:run"/>
+        </antcall>
+        <antcall target="run-mvn-generate">
+            <!-- does not start, I have to force it manually. Try to set another maven thread. -->
+            <param name="p_goals" value="jaxws:wsimport"/>
+        </antcall>
+        <antcall target="run-mvn-generate">
+            <param name="p_goals" value="tomcat7:shutdown"/>
+        </antcall>
+        <!--<antcall target="run-mvn-clean" />-->
+    </target>
+
+</project>
