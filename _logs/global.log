@@ -3,3 +3,89 @@
 2019-03-04 14:41:09,135 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
 2019-03-04 14:50:53,504 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
 2019-03-04 15:03:17,741 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 15:25:44,014 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 15:41:39,954 [localhost-startStop-1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 16:46:31,936 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 16:46:32,058 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 16:46:32,062 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:17 - helloWorldResponse: Hello world!
+2019-03-04 16:46:32,064 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-04 16:46:32,067 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - sayHelloResponse: Hello Mike
+2019-03-04 16:55:21,876 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 16:55:21,997 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 16:55:22,002 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-04 18:00:08,947 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 18:00:08,958 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:14 - Making the SOAP call using stubs.
+2019-03-04 18:00:09,596 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 18:00:09,602 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:24 - helloWorldResponse: Hello world!
+2019-03-04 18:00:09,605 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-04 18:00:09,607 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:26 - sayHelloResponse: Hello Mike
+2019-03-04 18:00:09,607 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:17 - Making the SOAP call using a generic SOAP connection and the ObjectFactory stub.
+2019-03-04 18:02:01,023 [pool-1-thread-2] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 18:43:04,970 [RMI TCP Connection(9)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:21 - Making the SOAP call using stubs.
+2019-03-04 18:44:51,164 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 18:44:51,173 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:22 - Making the SOAP call using stubs.
+2019-03-04 18:44:51,286 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 18:44:51,290 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:33 - helloWorldResponse: Hello world!
+2019-03-04 18:44:51,293 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-04 18:44:51,316 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:35 - sayHelloResponse: Hello Mike
+2019-03-04 18:44:51,316 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:25 - Making the SOAP call using a generic SOAP connection and the ObjectFactory stub.
+2019-03-04 18:44:51,414 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 18:44:51,417 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:67 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:HelloWorldResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello world!</return></ns2:HelloWorldResponse></S:Body></S:Envelope>
+2019-03-04 18:56:04,710 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 18:56:04,719 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-04 18:56:05,332 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 18:56:05,339 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:30 - helloWorldResponse: Hello world!
+2019-03-04 18:56:05,343 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-04 18:56:05,345 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:32 - sayHelloResponse: Hello Mike
+2019-03-04 18:56:05,345 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:22 - Making the SOAP call using a generic SOAP connection and the ObjectFactory stub.
+2019-03-04 18:56:05,407 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 18:56:05,411 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:64 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:HelloWorldResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello world!</return></ns2:HelloWorldResponse></S:Body></S:Envelope>
+2019-03-04 18:56:05,431 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:80 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope"><faultcode>S:Client</faultcode><faultstring>Cannot find dispatch method for {}</faultstring></S:Fault></S:Body></S:Envelope>
+2019-03-04 18:59:27,189 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 18:59:27,198 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-04 18:59:27,817 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 18:59:27,822 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:30 - helloWorldResponse: Hello world!
+2019-03-04 18:59:27,826 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-04 18:59:27,828 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:32 - sayHelloResponse: Hello Mike
+2019-03-04 18:59:27,828 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:22 - Making the SOAP call using a generic SOAP connection and the ObjectFactory stub.
+2019-03-04 18:59:27,893 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 18:59:27,897 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:64 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:HelloWorldResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello world!</return></ns2:HelloWorldResponse></S:Body></S:Envelope>
+2019-03-04 18:59:27,919 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:79 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:HelloWorldResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello world!</return></ns2:HelloWorldResponse></S:Body></S:Envelope><?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope"><faultcode>S:Client</faultcode><faultstring>Cannot find dispatch method for {}</faultstring></S:Fault></S:Body></S:Envelope>
+2019-03-04 19:09:29,485 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 19:09:29,493 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-04 19:09:29,609 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 19:09:29,613 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:30 - helloWorldResponse: Hello world!
+2019-03-04 19:09:29,616 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-04 19:09:29,619 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:32 - sayHelloResponse: Hello Mike
+2019-03-04 19:09:29,619 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:22 - Making the SOAP call using a generic SOAP connection and the ObjectFactory stub.
+2019-03-04 19:09:29,678 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:81 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><HelloWorld xmlns="http://contract.service.jaxws.soap.giophub.com/"/></SOAP-ENV:Body></SOAP-ENV:Envelope>
+2019-03-04 19:09:29,690 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 19:09:29,692 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:81 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:HelloWorldResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello world!</return></ns2:HelloWorldResponse></S:Body></S:Envelope>
+2019-03-04 19:09:29,701 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:81 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body/></SOAP-ENV:Envelope>
+2019-03-04 19:09:29,723 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:81 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope"><faultcode>S:Client</faultcode><faultstring>Cannot find dispatch method for {}</faultstring></S:Fault></S:Body></S:Envelope>
+2019-03-04 19:19:06,605 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 19:19:06,614 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-04 19:19:06,728 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 19:19:06,731 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:30 - helloWorldResponse: Hello world!
+2019-03-04 19:19:06,733 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-04 19:19:06,735 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:32 - sayHelloResponse: Hello Mike
+2019-03-04 19:19:06,736 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:22 - Making the SOAP call using a generic SOAP connection and the ObjectFactory stub.
+2019-03-04 19:19:06,784 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:84 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><HelloWorld xmlns="http://contract.service.jaxws.soap.giophub.com/"/></SOAP-ENV:Body></SOAP-ENV:Envelope>
+2019-03-04 19:19:06,797 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 19:19:06,798 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:84 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:HelloWorldResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello world!</return></ns2:HelloWorldResponse></S:Body></S:Envelope>
+2019-03-04 19:19:06,800 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:84 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><sayHello xmlns="http://contract.service.jaxws.soap.giophub.com/"/></SOAP-ENV:Body></SOAP-ENV:Envelope>
+2019-03-04 19:19:06,803 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello null
+2019-03-04 19:19:06,804 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:84 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:sayHelloResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello null</return></ns2:sayHelloResponse></S:Body></S:Envelope>
+2019-03-04 19:23:24,356 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-04 19:23:24,366 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-04 19:23:24,487 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 19:23:24,490 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:30 - helloWorldResponse: Hello world!
+2019-03-04 19:23:24,493 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-04 19:23:24,497 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:32 - sayHelloResponse: Hello Mike
+2019-03-04 19:23:24,497 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:22 - Making the SOAP call using a generic SOAP connection and the ObjectFactory stub.
+2019-03-04 19:23:24,552 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:86 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><HelloWorld xmlns="http://contract.service.jaxws.soap.giophub.com/"/></SOAP-ENV:Body></SOAP-ENV:Envelope>
+2019-03-04 19:23:24,565 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-04 19:23:24,568 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:86 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:HelloWorldResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello world!</return></ns2:HelloWorldResponse></S:Body></S:Envelope>
+2019-03-04 19:23:24,571 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:86 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><sayHello xmlns="http://contract.service.jaxws.soap.giophub.com/"/></SOAP-ENV:Body></SOAP-ENV:Envelope>
+2019-03-04 19:23:24,580 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello null
+2019-03-04 19:23:24,582 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:86 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:sayHelloResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello null</return></ns2:sayHelloResponse></S:Body></S:Envelope>
