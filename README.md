@@ -14,3 +14,5 @@ cmd:> git config --local user.email your.email@google.com <br>
 There is Tomcat7 embedded in the `pom.xml`. To deploy the application and run the command:
 * to compile and generate the war file: `mvn clean package -DskipTests`
 * to deploy and run: `mvn tomcat7:run`
+
+Or in one step: `mvn clean package -DskipTests tomcat7:run`
