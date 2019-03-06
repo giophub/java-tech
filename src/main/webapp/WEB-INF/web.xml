@@ -23,10 +23,12 @@
 	provided above. However, if you add GPL Version 2 code and therefore, elected 
 	the GPL Version 2 license, then the option applies only if the new code is 
 	made subject to such option by the copyright holder. -->
-<!-- This is the XML DTD for the Servlet 2.3 deployment descriptor. All Servlet 
+
+<!-- This is the XML DTD for the Servlet 2.3 deployment descriptor. All Servlet
 	2.3 deployment descriptors must include a DOCTYPE of the following form: 
 	<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 
 	2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd"> -->
+
 <!-- The following conventions apply to all J2EE deployment descriptor elements 
 	unless indicated otherwise. - In elements that contain PCDATA, leading and 
 	trailing whitespace in the data may be ignored. - In elements whose value 
@@ -332,8 +334,8 @@
 	easily refer from these tool-specific files to the information in the standard 
 	deployment descriptor. Tools are not allowed to add the non-standard information 
 	into the standard deployment descriptor. -->
-<web-app
->
+
+<web-app>
 	<display-name>maven-kickstart</display-name>
 
 	<!--<context-param>
@@ -423,6 +425,23 @@
 		<servlet-class>com.giophub.soap.jaxws.client.SoapClient</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
+	<!-- JERSEY servlet -->
+	<servlet>
+        <display-name>Jersey REST Service</display-name>
+        <description>Jersey REST Service published at: http://localhost:8080/rest/jersey-service</description>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param> <!-- Register resources and providers under com.giophub.rest.jersey.service -->
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.giophub.rest.jersey.service</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
 
 	<!-- Spring servlet-->
 	<servlet>
