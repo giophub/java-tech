@@ -13,6 +13,7 @@ public class JerseyService {
 
     private static final Logger LOG = LoggerFactory.getLogger(JerseyService.class);
 
+
     public JerseyService() {
         LOG.info("Jersey REST service published at: http://localhost:8080/rest/jersey-service");
     }
@@ -45,5 +46,16 @@ public class JerseyService {
     public String sayJsonHello() {
         return "Hello Jersey";
     }*/
+
+    @GET
+    @Produces(MediaType.TEXT_XML + ";charset=UTF-8")
+    @Path("/advanced")
+    public Todo advanced() {
+        LOG.info("Requested advanced resource as HTML");
+        Todo todo = new Todo();
+        todo.setSummary("XML Todo Summary");
+        todo.setDescription("XML Todo Description");
+        return todo;
+    }
 
 }
