@@ -340,9 +340,8 @@
         <!-- WEB -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
         </dependency>
         <!-- Apache commons : HTTP Client -->
         <dependency>
@@ -379,6 +378,17 @@
             <artifactId>jersey-client</artifactId>
             <version>${jersey2.version}</version>
         </dependency>
+        <dependency>
+            <!-- needed for MediaType.APPLICATION_JESON !! -->
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+            <version>${jersey2.version}</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>2.28</version>
+        </dependency>-->
 
 
         <!-- Spring -->

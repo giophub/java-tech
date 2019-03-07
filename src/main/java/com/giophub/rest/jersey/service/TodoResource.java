@@ -13,6 +13,17 @@ public class TodoResource {
     private final static Logger LOG = LoggerFactory.getLogger(TodoResource.class);
 
 
+    // This can be used to test the integration with the browser
+    @GET
+    @Produces({MediaType.TEXT_XML})
+    public Todo getHTML() {
+        LOG.info("Requested TodoResource as HTML");
+        Todo todo = new Todo();
+        todo.setSummary("XML Todo Summary");
+        todo.setDescription("XML Todo Description");
+        return todo;
+    }
+
     // This method is called if XML is requested
     @GET
     @Produces({MediaType.APPLICATION_XML})
@@ -32,17 +43,6 @@ public class TodoResource {
         Todo todo = new Todo();
         todo.setSummary("Application JSON Todo Summary");
         todo.setDescription("Application JSON Todo Description");
-        return todo;
-    }
-
-    // This can be used to test the integration with the browser
-    @GET
-    @Produces({ MediaType.TEXT_HTML })
-    public Todo getHTML() {
-        LOG.info("Requested TodoResource as HTML");
-        Todo todo = new Todo();
-        todo.setSummary("XML Todo Summary");
-        todo.setDescription("XML Todo Description");
         return todo;
     }
 }

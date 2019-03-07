@@ -40,13 +40,7 @@ public class JerseyService {
                 + "<body><h1>" + "Hello Jersey" + "</body></h1>" + "</html> ";
     }
 
-    // This method is called if TEXT_PLAIN is request
-    /*@GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String sayJsonHello() {
-        return "Hello Jersey";
-    }*/
-
+    // This method is called XML is request, making an automatic mapping from JAXB annotated class to XML
     @GET
     @Produces(MediaType.TEXT_XML + ";charset=UTF-8")
     @Path("/advanced")
