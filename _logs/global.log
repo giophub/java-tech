@@ -1,42 +1,30 @@
-2019-03-07 14:23:10,069 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
-2019-03-07 14:23:10,078 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
-2019-03-07 14:23:10,189 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
-2019-03-07 14:23:10,193 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:30 - helloWorldResponse: Hello world!
-2019-03-07 14:23:10,195 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
-2019-03-07 14:23:10,197 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:32 - sayHelloResponse: Hello Mike
-2019-03-07 14:23:10,198 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:22 - Making the SOAP call using a generic SOAP connection and the ObjectFactory stub.
-2019-03-07 14:23:10,247 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:85 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><HelloWorld xmlns="http://contract.service.jaxws.soap.giophub.com/"/></SOAP-ENV:Body></SOAP-ENV:Envelope>
-2019-03-07 14:23:10,259 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
-2019-03-07 14:23:10,261 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:85 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:HelloWorldResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello world!</return></ns2:HelloWorldResponse></S:Body></S:Envelope>
-2019-03-07 14:23:10,262 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:85 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><sayHello xmlns="http://contract.service.jaxws.soap.giophub.com/"/></SOAP-ENV:Body></SOAP-ENV:Envelope>
-2019-03-07 14:23:10,265 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello null
-2019-03-07 14:23:10,266 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:85 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:sayHelloResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello null</return></ns2:sayHelloResponse></S:Body></S:Envelope>
-2019-03-07 14:23:29,834 [http-nio-8080-exec-3] INFO  c.g.r.jersey.service.JerseyService:18 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
-2019-03-07 14:23:29,920 [main] INFO  c.g.rest.jersey.client.JerseyClient:43 - InboundJaxrsResponse{context=ClientResponse{method=GET, uri=http://localhost:8080/rest/jersey-service, status=200, reason=OK}}
-2019-03-07 14:23:29,932 [http-nio-8080-exec-4] INFO  c.g.r.jersey.service.JerseyService:18 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
-2019-03-07 14:23:29,947 [main] INFO  c.g.rest.jersey.client.JerseyClient:51 - Hello Jersey
-2019-03-07 14:23:29,953 [http-nio-8080-exec-8] INFO  c.g.r.jersey.service.JerseyService:18 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
-2019-03-07 14:23:29,959 [main] INFO  c.g.rest.jersey.client.JerseyClient:59 - <?xml version="1.0"?><hello> Hello Jersey</hello>
-2019-03-07 14:23:29,962 [http-nio-8080-exec-9] INFO  c.g.r.jersey.service.JerseyService:18 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
-2019-03-07 14:23:29,965 [main] INFO  c.g.rest.jersey.client.JerseyClient:67 - <html><title>Hello Jersey</title><body><h1>Hello Jersey</body></h1></html> 
-2019-03-07 14:23:29,981 [http-nio-8080-exec-10] INFO  c.g.r.jersey.service.TodoResource:20 - Requested TodoResource as HTML
-2019-03-07 14:23:30,007 [main] INFO  c.g.rest.jersey.client.JerseyClient:78 - <?xml version="1.0" encoding="UTF-8" standalone="yes"?><todo><description>XML Todo Description</description><summary>XML Todo Summary</summary></todo>
-2019-03-07 14:23:30,011 [http-nio-8080-exec-10] INFO  c.g.r.jersey.service.TodoResource:31 - Requested TodoResource as XML
-2019-03-07 14:23:30,015 [main] INFO  c.g.rest.jersey.client.JerseyClient:87 - <?xml version="1.0" encoding="UTF-8" standalone="yes"?><todo><description>Application XML Todo Description</description><summary>Application XML Todo Summary</summary></todo>
-2019-03-07 14:23:30,018 [http-nio-8080-exec-1] INFO  c.g.r.jersey.service.TodoResource:42 - Requested TodoResource as JSON
-2019-03-07 14:25:30,862 [RMI TCP Connection(10)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
-2019-03-07 14:25:43,861 [http-nio-8080-exec-5] INFO  c.g.r.jersey.service.TodoResource:31 - Requested TodoResource as XML
-2019-03-07 14:25:55,761 [http-nio-8080-exec-11] INFO  c.g.r.jersey.service.JerseyService:18 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
-2019-03-07 14:25:55,781 [main] INFO  c.g.rest.jersey.client.JerseyClient:43 - InboundJaxrsResponse{context=ClientResponse{method=GET, uri=http://localhost:8080/rest/jersey-service, status=200, reason=OK}}
-2019-03-07 14:25:55,790 [http-nio-8080-exec-4] INFO  c.g.r.jersey.service.JerseyService:18 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
-2019-03-07 14:25:55,805 [main] INFO  c.g.rest.jersey.client.JerseyClient:51 - Hello Jersey
-2019-03-07 14:25:55,809 [http-nio-8080-exec-7] INFO  c.g.r.jersey.service.JerseyService:18 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
-2019-03-07 14:25:55,812 [main] INFO  c.g.rest.jersey.client.JerseyClient:59 - <?xml version="1.0"?><hello> Hello Jersey</hello>
-2019-03-07 14:25:55,815 [http-nio-8080-exec-10] INFO  c.g.r.jersey.service.JerseyService:18 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
-2019-03-07 14:25:55,820 [main] INFO  c.g.rest.jersey.client.JerseyClient:67 - <html><title>Hello Jersey</title><body><h1>Hello Jersey</body></h1></html> 
-2019-03-07 14:25:55,825 [http-nio-8080-exec-2] INFO  c.g.r.jersey.service.TodoResource:20 - Requested TodoResource as HTML
-2019-03-07 14:25:55,834 [main] INFO  c.g.rest.jersey.client.JerseyClient:78 - <?xml version="1.0" encoding="UTF-8" standalone="yes"?><todo><description>XML Todo Description</description><summary>XML Todo Summary</summary></todo>
-2019-03-07 14:25:55,842 [http-nio-8080-exec-1] INFO  c.g.r.jersey.service.TodoResource:31 - Requested TodoResource as XML
-2019-03-07 14:25:55,847 [main] INFO  c.g.rest.jersey.client.JerseyClient:87 - <?xml version="1.0" encoding="UTF-8" standalone="yes"?><todo><description>Application XML Todo Description</description><summary>Application XML Todo Summary</summary></todo>
-2019-03-07 14:25:55,851 [http-nio-8080-exec-3] INFO  c.g.r.jersey.service.TodoResource:42 - Requested TodoResource as JSON
-2019-03-07 14:25:56,736 [main] INFO  c.g.rest.jersey.client.JerseyClient:96 - {"description":"Application JSON Todo Description","summary":"Application JSON Todo Summary"}
+2019-03-08 16:14:03,092 [ContainerBackgroundProcessor[StandardEngine[Catalina]]] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-08 16:14:07,744 [http-nio-8080-exec-136] INFO  c.g.r.jersey.service.JerseyService:23 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
+2019-03-08 16:14:07,758 [http-nio-8080-exec-136] INFO  c.g.r.jersey.service.JerseyService:68 - Requested the customException resource as JSON
+2019-03-08 16:14:07,866 [http-nio-8080-exec-136] INFO  c.g.r.jersey.service.JerseyService:76 - Arguments converted in JSON: {"Assignment":{"status":"500", "message":"ciao"}}
+2019-03-08 16:14:07,873 [http-nio-8080-exec-136] DEBUG c.g.r.j.s.e.JerseyServiceCustomException:23 - Fields{code='500', message='ciao'}
+2019-03-08 16:27:47,601 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
+2019-03-08 16:27:47,610 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-08 16:27:47,728 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-08 16:27:47,732 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:30 - helloWorldResponse: Hello world!
+2019-03-08 16:27:47,734 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello Mike
+2019-03-08 16:27:47,736 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:32 - sayHelloResponse: Hello Mike
+2019-03-08 16:27:47,736 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:22 - Making the SOAP call using a generic SOAP connection and the ObjectFactory stub.
+2019-03-08 16:27:47,791 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:85 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><HelloWorld xmlns="http://contract.service.jaxws.soap.giophub.com/"/></SOAP-ENV:Body></SOAP-ENV:Envelope>
+2019-03-08 16:27:47,804 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:18 - Message: Hello world!
+2019-03-08 16:27:47,805 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:85 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:HelloWorldResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello world!</return></ns2:HelloWorldResponse></S:Body></S:Envelope>
+2019-03-08 16:27:47,807 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:85 - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><sayHello xmlns="http://contract.service.jaxws.soap.giophub.com/"/></SOAP-ENV:Body></SOAP-ENV:Envelope>
+2019-03-08 16:27:47,810 [pool-1-thread-1] INFO  c.g.s.jaxws.service.SoapServiceImpl:25 - Message: Hello null
+2019-03-08 16:27:47,812 [RMI TCP Connection(3)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:85 - <?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:sayHelloResponse xmlns:ns2="http://contract.service.jaxws.soap.giophub.com/"><return>Hello null</return></ns2:sayHelloResponse></S:Body></S:Envelope>
+2019-03-08 16:29:07,122 [ContainerBackgroundProcessor[StandardEngine[Catalina]]] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-08 16:29:44,349 [ContainerBackgroundProcessor[StandardEngine[Catalina]]] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-08 16:30:08,725 [RMI TCP Connection(6)-127.0.0.1] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-08 16:30:21,981 [http-nio-8080-exec-9] INFO  c.g.r.jersey.service.JerseyService:22 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
+2019-03-08 16:30:21,995 [http-nio-8080-exec-9] INFO  c.g.r.jersey.service.JerseyService:67 - Requested the customException resource as JSON
+2019-03-08 16:30:22,098 [http-nio-8080-exec-9] INFO  c.g.r.jersey.service.JerseyService:75 - Arguments converted in JSON: {"Assignment":{"status":"500", "message":"ciao"}}
+2019-03-08 16:30:22,106 [http-nio-8080-exec-9] DEBUG c.g.r.j.s.e.JerseyServiceCustomException:23 - Fields{code='500', message='ciao'}
+2019-03-08 16:31:20,193 [ContainerBackgroundProcessor[StandardEngine[Catalina]]] INFO  c.g.soap.jaxws.client.SoapClient:19 - Making the SOAP call using stubs.
+2019-03-08 16:31:29,775 [http-nio-8080-exec-11] INFO  c.g.r.jersey.service.JerseyService:22 - Jersey REST service published at: http://localhost:8080/rest/jersey-service
+2019-03-08 16:31:29,791 [http-nio-8080-exec-11] INFO  c.g.r.jersey.service.JerseyService:67 - Requested the customException resource as JSON
+2019-03-08 16:31:29,895 [http-nio-8080-exec-11] INFO  c.g.r.jersey.service.JerseyService:75 - Arguments converted in JSON: {"Assignment":{"status":"500", "message":"ciao"}}
+2019-03-08 16:31:29,903 [http-nio-8080-exec-11] DEBUG c.g.r.j.s.e.JerseyServiceCustomException:23 - Fields{code='500', message='ciao'}

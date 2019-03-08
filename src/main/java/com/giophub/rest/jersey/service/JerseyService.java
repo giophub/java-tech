@@ -1,10 +1,14 @@
 package com.giophub.rest.jersey.service;
 
+import com.giophub.rest.jersey.service.exception.JerseyServiceCustomException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -45,11 +49,32 @@ public class JerseyService {
     @Produces(MediaType.TEXT_XML + ";charset=UTF-8")
     @Path("/advanced")
     public Todo advanced() {
-        LOG.info("Requested advanced resource as HTML");
+        LOG.info("Requested the advanced resource as HTML");
         Todo todo = new Todo();
         todo.setSummary("XML Todo Summary");
         todo.setDescription("XML Todo Description");
         return todo;
+    }
+
+    // This method throw an EXCEPTION in JSON
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    @Path("/customException/{code}/{message}/")
+    public String customException(
+            @PathParam("code")      String code,
+            @PathParam("message")   String message
+    ) throws JerseyServiceCustomException {
+        LOG.info("Requested the customException resource as JSON");
+
+        Gson json = new GsonBuilder().create();
+
+        String result = "{" + json.toJson("Assignment") + ":{" +
+                json.toJson("status")  + ":" + json.toJson(code) + ", " +
+                json.toJson("message") + ":" + json.toJson(message) + "}" +
+                        "}";
+        LOG.info("Arguments converted in JSON: {}", result);
+
+        throw new JerseyServiceCustomException(message, code);
     }
 
 }
