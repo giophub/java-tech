@@ -34,7 +34,7 @@
             <fileset dir="_RELEASES" includes="**/*" />
         </delete>
 		<antcall target="run-mvn-goals">
-			<param name="p_goals" value="clean package -Pestat_linux_acc -DskipTests"/>
+			<param name="p_goals" value="clean package -Plocalhost -DskipTests"/>
 		</antcall>
         <antcall target="run-mvn-clean" />
 	</target>
