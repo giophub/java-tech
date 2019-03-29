@@ -1,7 +1,7 @@
 package com.giophub.commons.utils.time;
 
 /**
- * @author Giovanni PERTA
+ * @author giophub
  * @since initial version
  */
 import org.slf4j.Logger;

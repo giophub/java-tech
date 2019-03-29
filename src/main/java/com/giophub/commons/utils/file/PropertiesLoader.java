@@ -12,11 +12,6 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
-/*
- * For property loader details see:
- * http://www.javaworld.com/javaworld/javaqa/2003-08/01-qa-0808-property.html?page=1
- * http://www.koders.com/java/fid5580570D56CD03F7E7ACF8C7968285B8673EA3D9.aspx
- */
 
 public class PropertiesLoader { // todo : change the logic of this class
     private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesLoader.class);

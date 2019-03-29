@@ -23,9 +23,8 @@ public class JerseyClient {
     public JerseyClient() {
         ClientConfig config = new ClientConfig();
         Client client = ClientBuilder.newClient(config);
-        WebTarget target = client.target(
+        target = client.target(
                 UriBuilder.fromUri("http://localhost:8080/").build());
-        this.target = target;
 
         // get responses from services
         jerseyServiceResponse();

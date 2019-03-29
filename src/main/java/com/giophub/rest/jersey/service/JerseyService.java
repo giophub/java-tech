@@ -22,21 +22,21 @@ public class JerseyService {
         LOG.info("Jersey REST service published at: http://localhost:8080/rest/jersey-service");
     }
 
-    // This method is called if TEXT_PLAIN is request
+    // This method is called if TEXT_PLAIN is requested
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String sayPlainTextHello() {
         return "Hello Jersey";
     }
 
-    // This method is called if XML is request
+    // This method is called if XML is requested
     @GET
     @Produces(MediaType.TEXT_XML)
     public String sayXMLHello() {
         return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
     }
 
-    // This method is called if HTML is request
+    // This method is called if HTML is requested
     @GET
     @Produces(MediaType.TEXT_HTML)
     public String sayHtmlHello() {
@@ -44,7 +44,7 @@ public class JerseyService {
                 + "<body><h1>" + "Hello Jersey" + "</body></h1>" + "</html> ";
     }
 
-    // This method is called XML is request, making an automatic mapping from JAXB annotated class to XML
+    // This method is called if XML is requested, making an automatic mapping from JAXB annotated class to XML
     @GET
     @Produces(MediaType.TEXT_XML + ";charset=UTF-8")
     @Path("/advanced")
@@ -56,7 +56,7 @@ public class JerseyService {
         return todo;
     }
 
-    // This method throw an EXCEPTION in JSON
+    // This method throws an EXCEPTION in JSON
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("/customException/{code}/{message}/")

@@ -1,6 +1,6 @@
 <html>
 <body>
-<h2>Hello Wizard-gvnn!</h2>
+<h2>Hello Wizard-giophub!</h2>
 
 <h2>Information about the application</h2>
 <p>

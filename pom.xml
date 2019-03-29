@@ -386,7 +386,7 @@
             <version>${jersey2.version}</version>
         </dependency>
         <dependency>
-            <!-- needed for MediaType.APPLICATION_JESON !! -->
+            <!-- needed for MediaType.APPLICATION_JSON !! -->
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-moxy</artifactId>
             <version>${jersey2.version}</version>
