@@ -10,10 +10,13 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.*;
 
 public class Parser {
     private static final Logger LOGGER = LoggerFactory.getLogger(Parser.class);
@@ -48,8 +51,29 @@ public class Parser {
         } catch (IOException e) {
             LOGGER.error("I/O Exception on parsing XML Document: {}", e.getMessage());
         }
-
         return dom;
+    }
+
+    public static String prettyPrintXml(Document dom) {
+        DOMSource source = new DOMSource(dom);
+        return prettyPrintXml(source);
+    }
+    public static String prettyPrintXml(Source source) {
+        String result;
+        try {
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            StreamResult xmlOutput = new StreamResult(new StringWriter());
+            transformer.transform(source, xmlOutput);
+
+            result = xmlOutput.getWriter().toString();
+            LOGGER.info("Pretty print:\n{}", result);
+            return result;
+        } catch (Exception e) {
+            LOGGER.error("Cannot execute the pretty print operation: {}", e);
+            return null;
+        }
     }
 
     public void asBufferedReader(BufferedReader bufferedReader) {

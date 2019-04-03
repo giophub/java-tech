@@ -58,16 +58,16 @@
         <resources>
             <resource> <!-- FILTERED RESOURCES -->
                 <filtering>true</filtering>
-                <directory>${project.basedir}/src/main/resources/app.settings</directory>
+                <directory>src/main/resources</directory>
                 <includes>
-                    <include>**/*</include>
+                    <include>filtered/**/*</include>
                 </includes>
             </resource>
             <resource> <!-- STATIC RESOURCES -->
                 <filtering>false</filtering>
-                <directory>${project.basedir}/src/main/resources/test</directory>
+                <directory>src/main/resources</directory>
                 <includes>
-                    <include>**/*</include>
+                    <include>static/**/*</include>
                 </includes>
             </resource>
         </resources>
