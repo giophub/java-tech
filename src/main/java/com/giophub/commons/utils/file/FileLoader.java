@@ -1,25 +1,31 @@
 package com.giophub.commons.utils.file;
 
+import com.giophub.commons.utils.xml.Parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
 
+// todo : this class should return only a File object
 public class FileLoader {
     private static final Logger LOGGER = LoggerFactory.getLogger(FileLoader.class);
 
-    private FileReader reader;
+    private FileReader fileReader;
+    private BufferedReader bufferedReader;
     private File input;
+    private InputStream is;
 
 
     public FileLoader load(String name) {
         ClassLoader classLoader = getClass().getClassLoader();
         name = classLoader.getResource(name).getFile();
 
-//        FileReader reader = null;
+//        FileReader fileReader = null;
         try {
             input = new File(name);
-            reader = new FileReader(name);
+            fileReader = new FileReader(name);
+            is = new FileInputStream(input);
+            bufferedReader = new BufferedReader(fileReader);
         } catch (FileNotFoundException e) {
             LOGGER.error("Error on loading file: " + name + "\n" + e.getMessage());
         }
@@ -32,7 +38,8 @@ public class FileLoader {
 
     public void close() {
         try {
-            if (reader != null) reader.close();
+            if (bufferedReader != null) bufferedReader.close();
+            if (fileReader != null) fileReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,13 +51,22 @@ public class FileLoader {
     }
 
     public FileReader asFileReader() {
-        return reader;
+        return fileReader;
+    }
+
+    public InputStream asInputStream() {
+        return is;
     }
 
     public BufferedReader asBufferedReader() {
-        return new BufferedReader(reader);
+        return bufferedReader;
     }
 
+    public String asString() {
+        String result = Parser.asString(bufferedReader);
+        close();
+        return result;
+    }
 
 
 

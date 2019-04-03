@@ -54,6 +54,7 @@ public class Parser {
         return dom;
     }
 
+    // todo : the pretty print does not work
     public static String prettyPrintXml(Document dom) {
         DOMSource source = new DOMSource(dom);
         return prettyPrintXml(source);
@@ -91,9 +92,9 @@ public class Parser {
         }
     }
 
-    public String asString(BufferedReader bufferedReader) {
+    public static String asString(BufferedReader bufferedReader) {
         StringBuilder sb = new StringBuilder();
-        String line = null;
+        String line;
         try {
             if (!bufferedReader.ready())
                 LOGGER.warn("The buffer reader is null or it is not ready !");
@@ -103,9 +104,8 @@ public class Parser {
                 sb.append("\n");
             }
         } catch (IOException e) {
-            LOGGER.error("Error on reading buffer\n" + e.getMessage());
+            LOGGER.error("Error on reading buffer: {}", e.getMessage());
         }
-
         return sb.toString();
     }
 

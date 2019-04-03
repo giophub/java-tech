@@ -7,6 +7,6 @@ import javax.jws.WebService;
 @WebService
 public interface SoapService {
 
-    @WebMethod String HelloWorld();
+    @WebMethod String helloWorld();
     @WebMethod String sayHello(@WebParam(name = "name") String name);
 }

@@ -14,7 +14,7 @@ public class SoapServiceImpl
     private final Logger LOG = LoggerFactory.getLogger(SoapServiceImpl.class);
 
     @Override
-    public String HelloWorld() {
+    public String helloWorld() {
         String message = "Hello world!";
         LOG.info("Message: {}", message);
         return message;
