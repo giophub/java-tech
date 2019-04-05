@@ -37,12 +37,8 @@ public class FileLoader {
     }
 
     public void close() {
-        try {
-            if (bufferedReader != null) bufferedReader.close();
-            if (fileReader != null) fileReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        try { if (bufferedReader != null) bufferedReader.close(); } catch (IOException e) {/* cannot do nothing */}
+        try { if (fileReader != null) fileReader.close(); } catch (IOException e) {/* cannot do nothing */}
     }
 
 //    TODO write the content of file in memory to re-use it n-times.

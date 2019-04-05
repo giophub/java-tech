@@ -3,10 +3,7 @@ package com.giophub.commons.utils.file;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Enumeration;
 import java.util.Locale;
 import java.util.Properties;
@@ -159,12 +156,7 @@ public class PropertiesLoader { // todo : change the logic of this class
         } catch (Exception e) {
             result = null;
         } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (Throwable ignore) {
-                }
-            }
+            try { if(in != null) in.close();} catch (IOException e) {/* cannot do nothing */}
         }
 
         if (THROW_ON_LOAD_FAILURE && (result == null)) {

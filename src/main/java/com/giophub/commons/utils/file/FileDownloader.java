@@ -35,13 +35,9 @@ public class FileDownloader {
         } catch (IOException e) {
             LOG.error("Cannot download the file: {}. Exception: {}", uri, e);
         } finally {
-            try {
-                if (br != null) br.close();
-                if (isr != null) isr.close();
-                if (is != null) is.close();
-            } catch (IOException e) {
-                LOG.error("Cannot close stream. Exception: {}", e);
-            }
+            try { if (br != null)   br.close();     } catch (IOException e) {/* cannot do nothing */}
+            try { if (isr != null)  isr.close();    } catch (IOException e) {/* cannot do nothing */}
+            try { if (is != null)   is.close();     } catch (IOException e) {/* cannot do nothing */}
         }
     }
 }
