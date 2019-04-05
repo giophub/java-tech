@@ -2,6 +2,9 @@ package com.giophub.commons.utils.xml;
 
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
+import org.jdom2.input.DOMBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -10,13 +13,10 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Parser {
     private static final Logger LOGGER = LoggerFactory.getLogger(Parser.class);
@@ -54,28 +54,19 @@ public class Parser {
         return dom;
     }
 
-    // todo : the pretty print does not work
-    public static String prettyPrintXml(Document dom) {
-        DOMSource source = new DOMSource(dom);
-        return prettyPrintXml(source);
+    public static org.jdom2.Document convertToJdom(Document document) {
+        DOMBuilder builder = new DOMBuilder();
+        return builder.build(document);
     }
-    public static String prettyPrintXml(Source source) {
-        String result;
-        try {
-            Transformer transformer = TransformerFactory.newInstance().newTransformer();
-            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            StreamResult xmlOutput = new StreamResult(new StringWriter());
-            transformer.transform(source, xmlOutput);
 
-            result = xmlOutput.getWriter().toString();
-            LOGGER.info("Pretty print:\n{}", result);
-            return result;
-        } catch (Exception e) {
-            LOGGER.error("Cannot execute the pretty print operation: {}", e);
-            return null;
-        }
+    public static void prettyPrintXml(Document document) {
+        LOGGER.info("Pretty print xml\n{}", prettyPrintXml( convertToJdom(document) ));
     }
+    public static String prettyPrintXml(org.jdom2.Document document) {
+        XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
+        return xmlOutputter.outputString(document);
+    }
+
 
     public void asBufferedReader(BufferedReader bufferedReader) {
         LOGGER.debug("Reading file as buffered reader");
