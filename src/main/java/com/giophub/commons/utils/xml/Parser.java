@@ -1,6 +1,5 @@
 package com.giophub.commons.utils.xml;
 
-import com.sun.istack.internal.Nullable;
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.jdom2.input.DOMBuilder;
@@ -50,7 +49,7 @@ public class Parser {
     public static Document convertToDOM(JAXBElement jaxbElement) {
         return convertToDOM(jaxbElement, true, true);
     }
-    public static Document convertToDOM(JAXBElement jaxbElement, @Nullable boolean addXmlHeader, @Nullable boolean indent) {
+    public static Document convertToDOM(JAXBElement jaxbElement, boolean addXmlHeader, boolean indent) {
         Document dom = newDocumentBuilderInstance().newDocument();
         JAXBContext jaxbContext;
         try {
