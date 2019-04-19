@@ -1,5 +1,6 @@
 package com.giophub.commons.utils.xml;
 
+import com.sun.istack.internal.Nullable;
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.jdom2.input.DOMBuilder;
@@ -10,13 +11,17 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import javax.xml.soap.SOAPException;
+import javax.xml.soap.SOAPMessage;
+import java.io.*;
+import java.util.Objects;
 
 public class Parser {
     private static final Logger LOGGER = LoggerFactory.getLogger(Parser.class);
@@ -30,26 +35,32 @@ public class Parser {
 
     public static Document convertToDOM(InputStream is) {
         Document dom = null;
-
         try {
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            dbf.setValidating(false);
-            dbf.setIgnoringComments(false);
-            dbf.setIgnoringElementContentWhitespace(true);
-            dbf.setNamespaceAware(true);
-            // dbf.setCoalescing(true);
-            // dbf.setExpandEntityReferences(true);
-
-            DocumentBuilder builder = dbf.newDocumentBuilder();
+            DocumentBuilder builder = newDocumentBuilderInstance();
             dom = builder.parse(is);
             dom.getDocumentElement().normalize(); // normalize the document
-
-        } catch (ParserConfigurationException e) {
-            LOGGER.error("Document builder factory exception: {}", e.getMessage());
         } catch (SAXException e) {
             LOGGER.error("Error on parsing the XML Document from Input Stream: {}", e.getMessage());
         } catch (IOException e) {
             LOGGER.error("I/O Exception on parsing XML Document: {}", e.getMessage());
+        }
+        return dom;
+    }
+
+    public static Document convertToDOM(JAXBElement jaxbElement) {
+        return convertToDOM(jaxbElement, true, true);
+    }
+    public static Document convertToDOM(JAXBElement jaxbElement, @Nullable boolean addXmlHeader, @Nullable boolean indent) {
+        Document dom = newDocumentBuilderInstance().newDocument();
+        JAXBContext jaxbContext;
+        try {
+            jaxbContext = JAXBContext.newInstance(jaxbElement.getDeclaredType());
+            Marshaller marshaller = jaxbContext.createMarshaller();
+            marshaller.setProperty("jaxb.fragment", addXmlHeader); // to stop <?xml ... being added ?>
+            marshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, indent );
+            marshaller.marshal(jaxbElement, dom);
+        } catch (JAXBException e) {
+            e.printStackTrace();
         }
         return dom;
     }
@@ -100,7 +111,48 @@ public class Parser {
         return sb.toString();
     }
 
+    public static String toString(SOAPMessage soapMessage) {
+        if (soapMessage == null)
+            LOGGER.error("Cannot convert the soap message to string, its value is null");
+
+        String result = null;
+        try {
+            ByteArrayOutputStream writer = new ByteArrayOutputStream();
+            Objects.requireNonNull(soapMessage).writeTo(writer);
+            XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
+            result = xmlOutputter.outputString(
+                    new DOMBuilder().build(convertToDOM(writer.toString("UTF8"))));
+        } catch (SOAPException | IOException e) {
+            e.printStackTrace();
+        }
+
+        if (result == null)
+            LOGGER.error("Cannot convert the soap message to string, its value is null");
+
+        return result;
+    }
+
     public void asInputStream(InputStreamReader inputStreamReader) {
 //        while (null != (line = FileInputStream(File file)))
+    }
+
+    // ---------------------------- PRIVATE ----------------------
+
+    private static DocumentBuilder newDocumentBuilderInstance() {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        dbf.setValidating(false);
+        dbf.setIgnoringComments(false);
+        dbf.setIgnoringElementContentWhitespace(true);
+        dbf.setNamespaceAware(true);
+        // dbf.setCoalescing(true);
+        // dbf.setExpandEntityReferences(true);
+
+        DocumentBuilder builder = null;
+        try {
+            builder = dbf.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            LOGGER.error("Document builder factory exception: {}", e);
+        }
+        return builder;
     }
 }
