@@ -1,5 +1,7 @@
 package com.giophub.commons.utils.xml;
 
+import com.sun.org.apache.xml.internal.serialize.OutputFormat;
+import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.jdom2.input.DOMBuilder;
@@ -8,6 +10,7 @@ import org.jdom2.output.XMLOutputter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.bind.JAXBContext;
@@ -77,6 +80,25 @@ public class Parser {
         return xmlOutputter.outputString(document);
     }
 
+    public static String format(String xml, Boolean ommitXmlDeclaration) {
+        DocumentBuilder db = null;
+        Writer outxml = new StringWriter();
+        try {
+            db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            Document doc = db.parse(new InputSource(new StringReader(xml)));
+
+            OutputFormat format = new OutputFormat(doc);
+            format.setIndenting(true);
+            format.setIndent(2);
+            format.setOmitXMLDeclaration(ommitXmlDeclaration);
+            format.setLineWidth(Integer.MAX_VALUE);
+            XMLSerializer serializer = new XMLSerializer(outxml, format);
+            serializer.serialize(doc);
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+        }
+        return outxml.toString();
+    }
 
     public void asBufferedReader(BufferedReader bufferedReader) {
         LOGGER.debug("Reading file as buffered reader");
