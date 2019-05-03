@@ -81,23 +81,32 @@ public class Parser {
     }
 
     public static String format(String xml, Boolean ommitXmlDeclaration) {
-        DocumentBuilder db = null;
+        String result = null;
+
+        DocumentBuilder db = newDocumentBuilderInstance();
+        StringReader sr = new StringReader(xml);
+        InputSource is = new InputSource(sr);
         Writer outxml = new StringWriter();
         try {
-            db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document doc = db.parse(new InputSource(new StringReader(xml)));
+            Document doc = db.parse(is);
 
             OutputFormat format = new OutputFormat(doc);
             format.setIndenting(true);
             format.setIndent(2);
             format.setOmitXMLDeclaration(ommitXmlDeclaration);
             format.setLineWidth(Integer.MAX_VALUE);
+
             XMLSerializer serializer = new XMLSerializer(outxml, format);
             serializer.serialize(doc);
-        } catch (ParserConfigurationException | SAXException | IOException e) {
+
+            result = outxml.toString();
+        } catch (SAXException | IOException e) {
             e.printStackTrace();
+        } finally {
+            try { outxml.close(); } catch (IOException e) { e.printStackTrace(); }
+            sr.close();
         }
-        return outxml.toString();
+        return result;
     }
 
     public void asBufferedReader(BufferedReader bufferedReader) {
