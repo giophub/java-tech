@@ -26,6 +26,18 @@ public interface SoapService {
 
     /**
      * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "helloWorld")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "helloWorld", targetNamespace = "http://contract.service.jaxws.soap.giophub.com/", className = "com.giophub.soap.jaxws.client.stub.helloWorld")
+    @ResponseWrapper(localName = "HelloWorldResponse", targetNamespace = "http://contract.service.jaxws.soap.giophub.com/", className = "com.giophub.soap.jaxws.client.stub.HelloWorldResponse")
+    @Action(input = "http://contract.service.jaxws.soap.giophub.com/SoapService/HelloWorldRequest", output = "http://contract.service.jaxws.soap.giophub.com/SoapService/HelloWorldResponse")
+    public String helloWorld();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns java.lang.String
@@ -38,17 +50,5 @@ public interface SoapService {
     public String sayHello(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod(operationName = "HelloWorld")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "HelloWorld", targetNamespace = "http://contract.service.jaxws.soap.giophub.com/", className = "com.giophub.soap.jaxws.client.stub.HelloWorld")
-    @ResponseWrapper(localName = "HelloWorldResponse", targetNamespace = "http://contract.service.jaxws.soap.giophub.com/", className = "com.giophub.soap.jaxws.client.stub.HelloWorldResponse")
-    @Action(input = "http://contract.service.jaxws.soap.giophub.com/SoapService/HelloWorldRequest", output = "http://contract.service.jaxws.soap.giophub.com/SoapService/HelloWorldResponse")
-    public String helloWorld();
 
 }

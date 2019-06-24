@@ -1,15 +1,12 @@
 package com.giophub.soap.jaxws.client;
 
+import com.giophub.commons.utils.xml.Parser;
 import com.giophub.soap.jaxws.client.stub.*;
-import org.apache.commons.io.Charsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.soap.*;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
 public class SoapClient {
 
@@ -26,7 +23,7 @@ public class SoapClient {
     private void doCallUsingStub() {
         SoapServiceImplService serviceImpl = new SoapServiceImplService();
         SoapService ws = serviceImpl.getSoapServiceImplPort();
-        String helloWorldResponse =  ws.helloWorld();
+        String helloWorldResponse = ws.helloWorld();
         LOG.info("helloWorldResponse: {}", helloWorldResponse);
         String sayHelloResponse = ws.sayHello("Mike");
         LOG.info("sayHelloResponse: {}", sayHelloResponse);
@@ -51,41 +48,32 @@ public class SoapClient {
 
             SOAPBodyElement bodyElement = (SOAPBodyElement) body.addChildElement(helloWorld.getName());
             soapMessage.saveChanges();
-            this.logSoapMessage(soapMessage);
+            LOG.info(Parser.toString(soapMessage));
 
             conn = SOAPConnectionFactory.newInstance().createConnection();
             response = conn.call(soapMessage, endpoint);
-            this.logSoapMessage(response);
+            LOG.info(Parser.toString(response));
 
-
-            SOAPMessage soapMessage2 = MessageFactory.newInstance().createMessage();
-            SOAPPart soapPart2 = soapMessage2.getSOAPPart();
-            SOAPEnvelope envelope2 = soapPart2.getEnvelope();
-            SOAPBody body2 = envelope2.getBody();
-            // WARNING: this instruction does not convert the object in the right soap request,
-            // indeed the argument is null, rather than to be "Hello Armand!".
-            SOAPBodyElement bodyElement2 = (SOAPBodyElement) body2.addChildElement(sayHello.getName());
-            soapMessage2.saveChanges();
-            this.logSoapMessage(soapMessage2);
 
             conn = SOAPConnectionFactory.newInstance().createConnection();
-            response = conn.call(soapMessage2, endpoint);
-            this.logSoapMessage(response);
+            response = conn.call(
+                    buildSoapMessage(sayHello), endpoint);
+            LOG.info(Parser.toString(response));
 
         } catch (SOAPException e) {
             e.printStackTrace();
         }
     }
 
-    private void logSoapMessage(SOAPMessage response) {
-        OutputStream writer = new ByteArrayOutputStream();
-        try {
-            response.writeTo(writer);
-            String result = ((ByteArrayOutputStream) writer).toString(String.valueOf(Charsets.UTF_8));
-            LOG.info(result);
-        } catch (IOException | SOAPException e) {
-            e.printStackTrace();
-        }
+    private SOAPMessage buildSoapMessage(JAXBElement payload) throws SOAPException {
+        SOAPMessage soapMessage = MessageFactory.newInstance().createMessage();
+        SOAPPart soapPart = soapMessage.getSOAPPart();
+        SOAPEnvelope envelope = soapPart.getEnvelope();
+        SOAPBody body = envelope.getBody();
+        body.addDocument(Parser.convertToDOM(payload));
+        soapMessage.saveChanges();
+        LOG.info(Parser.toString(soapMessage));
+        return soapMessage;
     }
 
 }

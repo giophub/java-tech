@@ -24,7 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _HelloWorld_QNAME = new QName("http://contract.service.jaxws.soap.giophub.com/", "HelloWorld");
+    private final static QName _HelloWorld_QNAME = new QName("http://contract.service.jaxws.soap.giophub.com/", "helloWorld");
     private final static QName _HelloWorldResponse_QNAME = new QName("http://contract.service.jaxws.soap.giophub.com/", "HelloWorldResponse");
     private final static QName _SayHello_QNAME = new QName("http://contract.service.jaxws.soap.giophub.com/", "sayHello");
     private final static QName _SayHelloResponse_QNAME = new QName("http://contract.service.jaxws.soap.giophub.com/", "sayHelloResponse");
@@ -76,7 +76,7 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link HelloWorld }{@code >}
      */
-    @XmlElementDecl(namespace = "http://contract.service.jaxws.soap.giophub.com/", name = "HelloWorld")
+    @XmlElementDecl(namespace = "http://contract.service.jaxws.soap.giophub.com/", name = "helloWorld")
     public JAXBElement<HelloWorld> createHelloWorld(HelloWorld value) {
         return new JAXBElement<HelloWorld>(_HelloWorld_QNAME, HelloWorld.class, null, value);
     }

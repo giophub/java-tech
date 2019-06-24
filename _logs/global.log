@@ -28,3 +28,4 @@
 2019-03-08 16:31:29,791 [http-nio-8080-exec-11] INFO  c.g.r.jersey.service.JerseyService:67 - Requested the customException resource as JSON
 2019-03-08 16:31:29,895 [http-nio-8080-exec-11] INFO  c.g.r.jersey.service.JerseyService:75 - Arguments converted in JSON: {"Assignment":{"status":"500", "message":"ciao"}}
 2019-03-08 16:31:29,903 [http-nio-8080-exec-11] DEBUG c.g.r.j.s.e.JerseyServiceCustomException:23 - Fields{code='500', message='ciao'}
+2019-04-01 17:02:06,263 [RMI TCP Connection(2)-127.0.0.1] INFO  c.g.s.j.s.SoapServicePublisher:19 - Published the SOAP service at: http://localhost:8081/JaxWsSoapService?wsdl
