@@ -14,7 +14,7 @@
         <java.version>1.8</java.version>
         <jersey2.version>2.19</jersey2.version>
         <jaxrs.version>2.0.1</jaxrs.version>
-        <spring.version>5.0.5.RELEASE</spring.version>
+        <spring.version>5.2.7.RELEASE</spring.version>
 
         <!-- build default settings -->
         <!--<maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>-->
